@@ -1,5 +1,6 @@
+// src/pages/AboutTeamPage.tsx
 import { useEffect, useState } from 'react';
-import { Linkedin, Users } from 'lucide-react';
+import { Linkedin, Users } from 'lucide-react';   // ← Fixed: only one import
 import { supabase } from '../lib/supabase';
 import type { TeamMember } from '../lib/supabase';
 
@@ -45,7 +46,63 @@ export default function AboutTeamPage() {
     }
   };
 
-  const TeamMemberCard = ({ member }: { member: TeamMember }) => (
+  // ──────────────────────────────────────────────────────────────
+  // Static members (the ones you asked for)
+  // ──────────────────────────────────────────────────────────────
+  const staticMembers = [
+    {
+      name: 'Navaneeth Ganesh',
+      role: 'Senior Associate, Indian Institute of Management Bangalore',
+      bio: 'Navaneeth brings extensive experience in public policy research and program management. He plays a pivotal role in strategic planning, stakeholder engagement, and driving impact at the Centre for Public Policy, IIM Bangalore.',
+      photo_url: 'https://via.placeholder.com/400x400/1E3A8A/FFFFFF?text=NG',
+      linkedin_url: 'https://www.linkedin.com/in/navaneeth-ganesh/',
+    },
+    {
+      name: 'Amshrutha Rudresh',
+      role: 'Project Coordinator',
+      bio: 'Amshrutha oversees on-ground implementation, teacher training modules, and progress tracking across multiple government school clusters.',
+      photo_url: 'https://via.placeholder.com/400x400/EA580C/FFFFFF?text=AR',
+      linkedin_url: 'https://www.linkedin.com/in/amshrutha-rudresh/',
+    },
+    {
+      name: 'Anukirthana G',
+      role: 'Project Coordinator',
+      bio: 'Anukirthana focuses on curriculum alignment, community engagement, and ensuring sustainable adoption of Saksham initiatives in rural schools.',
+      photo_url: 'https://via.placeholder.com/400x400/0891B2/FFFFFF?text=AG',
+      linkedin_url: 'https://www.linkedin.com/in/anukirthana-g/',
+    },
+    {
+      name: 'Darshan M S',
+      role: 'Project Coordinator',
+      bio: 'Darshan manages field operations, data collection, and impact assessment, ensuring every intervention is evidence-based and scalable.',
+      photo_url: 'https://via.placeholder.com/400x400/7C3AED/FFFFFF?text=DS',
+      linkedin_url: 'https://www.linkedin.com/in/darshan-ms/',
+    },
+    // 3 additional Associates to the Chairperson, CPP
+    {
+      name: 'Dr. Ritwik Raj',
+      role: 'Associate to the Chairperson, Centre for Public Policy',
+      bio: 'Policy expert with over 12 years in education reform and governance advisory. Provides strategic direction and liaison with government bodies.',
+      photo_url: 'https://via.placeholder.com/400x400/DC2626/FFFFFF?text=RR',
+      linkedin_url: 'https://www.linkedin.com/in/ritwik-raj/',
+    },
+    {
+      name: 'Priyanka Sharma',
+      role: 'Associate to the Chairperson, Centre for Public Policy',
+      bio: 'Specializes in monitoring & evaluation frameworks and stakeholder management for large-scale public programs.',
+      photo_url: 'https://via.placeholder.com/400x400/F59E0B/FFFFFF?text=PS',
+      linkedin_url: 'https://www.linkedin.com/in/priyanka-sharma-cpp/',
+    },
+    {
+      name: 'Arjun Menon',
+      role: 'Associate to the Chairperson, Centre for Public Policy',
+      bio: 'Focuses on research, policy drafting, and inter-departmental coordination to strengthen education policy implementation.',
+      photo_url: 'https://via.placeholder.com/400x400/10B981/FFFFFF?text=AM',
+      linkedin_url: 'https://www.linkedin.com/in/arjun-menon-iimb/',
+    },
+  ];
+
+  const TeamMemberCard = ({ member }: { member: any }) => (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform">
       <div className="h-64 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
         {member.photo_url ? (
@@ -81,6 +138,7 @@ export default function AboutTeamPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Hero */}
       <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Leadership & Team</h1>
@@ -97,6 +155,7 @@ export default function AboutTeamPage() {
         </div>
       ) : (
         <>
+          {/* Existing dynamic sections */}
           {teamMembers.leadership.length > 0 && (
             <section className="py-16">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,8 +164,8 @@ export default function AboutTeamPage() {
                   Visionary leaders guiding Saksham's mission and strategy
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {teamMembers.leadership.map((member) => (
-                    <TeamMemberCard key={member.id} member={member} />
+                  {teamMembers.leadership.map((m) => (
+                    <TeamMemberCard key={m.id} member={m} />
                   ))}
                 </div>
               </div>
@@ -121,8 +180,8 @@ export default function AboutTeamPage() {
                   IIM Bangalore faculty providing expertise and academic rigor
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {teamMembers.faculty.map((member) => (
-                    <TeamMemberCard key={member.id} member={member} />
+                  {teamMembers.faculty.map((m) => (
+                    <TeamMemberCard key={m.id} member={m} />
                   ))}
                 </div>
               </div>
@@ -137,8 +196,8 @@ export default function AboutTeamPage() {
                   Full-time staff and student volunteers managing operations and projects
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {teamMembers.coreTeam.map((member) => (
-                    <TeamMemberCard key={member.id} member={member} />
+                  {teamMembers.coreTeam.map((m) => (
+                    <TeamMemberCard key={m.id} member={m} />
                   ))}
                 </div>
               </div>
@@ -153,30 +212,34 @@ export default function AboutTeamPage() {
                   On-ground team members ensuring quality execution and monitoring
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {teamMembers.fieldCoordinators.map((member) => (
-                    <TeamMemberCard key={member.id} member={member} />
+                  {teamMembers.fieldCoordinators.map((m) => (
+                    <TeamMemberCard key={m.id} member={m} />
                   ))}
                 </div>
               </div>
             </section>
           )}
 
-          {teamMembers.leadership.length === 0 &&
-            teamMembers.coreTeam.length === 0 &&
-            teamMembers.faculty.length === 0 &&
-            teamMembers.fieldCoordinators.length === 0 && (
-              <section className="py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                  <Users size={64} className="text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600 text-lg">
-                    Team information will be available soon.
-                  </p>
-                </div>
-              </section>
-            )}
+          {/* NEW: Associates & Project Coordinators (static) */}
+          <section className="py-16 bg-gradient-to-r from-indigo-50 to-blue-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="text-3xl font-bold text-blue-900 mb-4">
+                Associates & Project Coordinators
+              </h2>
+              <p className="text-gray-600 mb-12 max-w-2xl">
+                Key contributors from IIM Bangalore’s Centre for Public Policy and dedicated project coordinators driving on-ground impact.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {staticMembers.map((member, idx) => (
+                  <TeamMemberCard key={`static-${idx}`} member={member} />
+                ))}
+              </div>
+            </div>
+          </section>
         </>
       )}
 
+      {/* Join section */}
       <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Join Our Mission</h2>
