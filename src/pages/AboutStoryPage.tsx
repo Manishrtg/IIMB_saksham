@@ -7,7 +7,7 @@ export default function AboutStoryPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Story & Vision</h1>
           <p className="text-xl text-gray-200 max-w-3xl">
-            Transforming the future of education, one government school at a time
+            Transforming the future of education
           </p>
         </div>
       </section>
