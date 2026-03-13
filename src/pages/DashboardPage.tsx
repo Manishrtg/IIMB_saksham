@@ -8,9 +8,9 @@ import type { School, Donation } from '../lib/supabase';
 
 export default function DashboardPage() {
   const [stats, setStats] = useState({
-    totalSchools: 0,
+    totalSchools: "106+" ,
     completed: 0,
-    ongoing: 0,
+    ongoing: 12,
     pipeline: 0,
     totalRaised: 0,
     totalTarget: 0,

@@ -6,10 +6,10 @@ import { useRouter } from '../utils/router';
 
 export default function HomePage() {
   const [stats, setStats] = useState({
-    schoolsSupported: 0,
-    fundsRaised: 0,
-    childrenImpacted: 0,
-    ongoingProjects: 0,
+    schoolsSupported: "108+",
+    fundsRaised: "1.5 Cr+",
+    childrenImpacted: "8000+",
+    ongoingProjects: "10+",
   });
   const [recentSchools, setRecentSchools] = useState<SchoolType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -77,10 +77,10 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Transforming Government Schools
+              Transforming Government Schools and Anganwadis
             </h1>
             <p className="text-xl text-gray-200 mb-8 leading-relaxed">
-              An IIM Bangalore-backed initiative bringing quality infrastructure and hope to government schools across Karnataka.
+              Saksham, IIM Bangalore’s School Development Initiative, is transforming government schools and anganwadis across Karnataka by improving infrastructure, access to safe drinking water, sanitation, digital learning, and community-driven development.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button

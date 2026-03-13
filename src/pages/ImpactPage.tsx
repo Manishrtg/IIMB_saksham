@@ -4,10 +4,10 @@ import { supabase } from '../lib/supabase';
 
 export default function ImpactPage() {
   const [stats, setStats] = useState({
-    schoolsCompleted: 0,
-    studentsImpacted: 0,
-    fundsRaised: 0,
-    partnersEngaged: 0,
+    schoolsCompleted: 108,
+    studentsImpacted: 8000,
+    fundsRaised: 15000000,
+    partnersEngaged:"10+",
   });
   const [yearlyProgress, setYearlyProgress] = useState<{ year: string; schools: number }[]>([]);
   const [isLoading, setIsLoading] = useState(true);
