@@ -38,10 +38,10 @@ export default function Header() {
           <span className="animate-in fade-in duration-500 delay-300">IIM Bangalore</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="animate-in fade-in duration-500 delay-500">Jal Jeevan Mission</span>
+          <span className="animate-in fade-in duration-500 delay-500">Saksham</span>
           <img
             src="/jjm-logo.png"
-            alt="Jal Jeevan Mission"
+            alt="Saksham"
             className="h-5 w-auto animate-in zoom-in-90 duration-500 delay-700"
           />
         </div>
